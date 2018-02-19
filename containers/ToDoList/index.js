@@ -7,7 +7,10 @@
 import React, { Component } from 'react';
 import {
   Modal,
-  StyleSheet
+  StyleSheet,
+  TextInput,
+  FlatList,
+  Button
 } from 'react-native';
 import {
   Container,
@@ -21,7 +24,6 @@ import {
   Title,
   Right,
   Left,
-  Button,
   Icon,
   Label,
   View,
@@ -71,41 +73,52 @@ export default class ToDo extends Component {
   render() {
     const { data, nama } = this.state;
     return (
-      <Container>
-        <Header>
-          <Left style={{ flex: 1 }}>
-          </Left>
+      // <Container>
+      //   <Header>
+      //     <Left style={{ flex: 1 }}>
+      //     </Left>
 
-          <Body style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Title>To Do</Title>
-          </Body>
+      //     <Body style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      //       <Title>To Do</Title>
+      //     </Body>
 
-          <Right style={{ flex: 1 }}>
-          </Right>
-        </Header>
-        <View style={{ flex: 1 }}>
-          <Fab
-            containerStyle={{}}
-            style={{ backgroundColor: '#007AFF' }}
-            position="bottomRight"
-            onPress={() => this.openModal()}>
-            <Icon name="add" />
-          </Fab>
-        </View>
-        <Modal
-          visible={this.state.modalVisible}
-          animationType={'slide'}
-          onRequestClose={() => this.closeModal()}
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.innerContainer}>
-              <Text>This is content inside of modal component</Text>
-            </View>
-          </View>
-        </Modal>
-      </Container>
+      //     <Right style={{ flex: 1 }}>
+      //     </Right>
+      //   </Header>
+      //   <View style={{ flex: 1, backgroundColor: 'white' }}>
+      //     <Fab
+      //       containerStyle={{}}
+      //       style={{ backgroundColor: '#007AFF' }}
+      //       position="bottomRight"
+      //       onPress={() => this.openModal()}>
+      //       <Icon name="add" />
+      //     </Fab>
+
+      //     <Modal
+      //       visible={this.state.modalVisible}
+      //       animationType={'slide'}
+      //       onRequestClose={() => this.closeModal()}
+      //       transparent
+      //     >
+      //       <View style={styles.modalContainer}>
+      //         <View style={styles.innerContainer}>
+                    
+      //                   <Icon active name="tasks"
+      //                     type="FontAwesome" />
+      //                   <TextInput placeholder="Task Name" />
+      //               <Button block
+      //                 style={{ marginTop: 10 }}
+      //                 onPress={() => this.closeModal()}
+      //               >
+      //                 <Text style={{ fontSize: 17 }}>Close</Text>
+      //               </Button>
+      //         </View>
+      //       </View>
+      //     </Modal>
+      //   </View>
+      // </Container>
       //{
-      /* <View style={styles.container}>
+       <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>
           To Do List
@@ -130,43 +143,44 @@ export default class ToDo extends Component {
         </ToDoItem>}
         extraData={this.state}
       />
-    </View> */
-      //}
+    </View>
+  // }
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-  },
-  modalContainer: {
-    justifyContent: 'center',
-    backgroundColor: 'grey',
-  },
-  innerContainer: {
-    alignItems: 'center',
-  },
-});
 // const styles = StyleSheet.create({
 //   container: {
-//     flex: 1,
-//     width: "100%",
-//     backgroundColor: '#F5FCFF'
-//   },
-//   title: {
-//     fontSize: 25,
-//     textAlign: 'center',
-//     margin: 10,
-//     color: '#FFFFFF',
 //     justifyContent: 'center',
 //   },
-//   header: {
-//     backgroundColor: '#FF3300',
-//     height: 60
+//   modalContainer: {
+//     alignItems : 'center',
+//     justifyContent: 'center',
+//     backgroundColor: '#EFF0F1',
 //   },
-//   inputItem: {
-//     flexDirection: 'row',
-//     margin: 20
-//   }
+//   innerContainer: {
+//     alignItems: 'center',
+//   },
 // });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    backgroundColor: '#F5FCFF'
+  },
+  title: {
+    fontSize: 25,
+    textAlign: 'center',
+    margin: 10,
+    color: '#FFFFFF',
+    justifyContent: 'center',
+  },
+  header: {
+    backgroundColor: '#FF3300',
+    height: 60
+  },
+  inputItem: {
+    flexDirection: 'row',
+    margin: 20
+  }
+});
