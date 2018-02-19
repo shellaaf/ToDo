@@ -10,7 +10,8 @@ import {
   StyleSheet,
   TextInput,
   FlatList,
-  Button
+  Button,
+  AsyncStorage,
 } from 'react-native';
 import {
   Container,
@@ -30,6 +31,7 @@ import {
   Fab
 } from 'native-base';
 import ToDoItem from './todoItem';
+import { NavigationActions } from 'react-navigation';
 
 
 export default class ToDo extends Component {
@@ -143,6 +145,17 @@ export default class ToDo extends Component {
         </ToDoItem>}
         extraData={this.state}
       />
+      <Button
+          title="Logout"
+          color="#FF6633"
+          onPress={() => {
+            AsyncStorage.removeItem('login').then(() => {
+              this.props.navigation.navigate('Login')
+            }).catch(err => {
+              console.log(err);
+              this.props.navigator.replace('Login');
+            });
+          }} />
     </View>
   // }
     );
