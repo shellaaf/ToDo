@@ -35,8 +35,9 @@ export default class ToDoItem extends Component {
             <TouchableOpacity
             style={{flex: 0.1}}
             onPress={()=> this.check()}>
+            <Image source={this.state.checked == false ? require('../../assets/checkbox-blank-outline.png') : require('../../assets/checkbox-marked-outline.png')}/>
                 </TouchableOpacity>
-            <Text>{this.props.todo}</Text>
+            <Text style={{flex: 0.2}}>{this.props.todo}</Text>
             <Button
             onPress={()=> this.props.onDelete(this.props.todo)}
             title="x"
