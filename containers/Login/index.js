@@ -33,7 +33,6 @@ export default class Login extends Component {
       username: null,
       password: null,
       isLoading: false,
-      // logedIn: false
     }
   }
 
@@ -150,12 +149,4 @@ export default class Login extends Component {
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   container:{
-//       flex: 1,
-//       justifyContent: 'center',
-//       backgroundColor: 'grey'
-// }
-// });
 
